@@ -5,10 +5,6 @@ import mongoose from "npm:mongoose@7.6.3"
 
 
 
-async function getcast(id:string){
-const nombre= await ModeloSerieopeli.findById(id);
-return nombre?.name
-}
 
 export default async function getSerieoPeli(req:Request,res:Response){
 const idshow= req.query.idshow;
