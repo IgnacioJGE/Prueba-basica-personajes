@@ -6,6 +6,14 @@ import getallPJ from "./resolvers/getallpersonajes.ts"
 import getshoworfilm from "./resolvers/getfilorshow.ts"
 import getagesAbove from "./resolvers/getagesabove.ts"
 import getagesBelow from "./resolvers/getagesbelow.ts"
+import addSeriepeli from "./resolvers/addserieopeli.ts"
+import addPJtoSerieoPeli from "./resolvers/addPJtoSerieofilm.ts"
+import getSerieoPeli from "./resolvers/getshowopelicula.ts"
+import getallSeries from "./resolvers/getallshows.ts"
+import getallFilms from "./resolvers/getallfilms.ts"
+
+
+
 const env=await load()
 const MONGO_URL=env.MONGO_URL||Deno.env.get("MONGO_URL")
 const PORT=env.PORT||Deno.env.get("PORT")||3000
@@ -28,6 +36,14 @@ try {
   app.get("/getfilmorshow",getshoworfilm)
   app.get("/getPersonajesAboveage",getagesAbove)
   app.get("/getPersonajesBelowage",getagesBelow)
+  app.post("/addSerieoPeli",addSeriepeli)
+  app.put("/addPersonajeaSerieoPeli",addPJtoSerieoPeli)
+  app.get("/getSerieoPeli",getSerieoPeli)
+  app.get("/getallShows",getallSeries)
+  app.get("/getallfilms",getallFilms)
+
+
+
 
   app.listen(PORT,()=> console.info ((`Te estoy escuchando desde ${PORT}`)));
 
